@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package runningmaxstream;
+option go_package="runningmaxstreampb";
+
+message NumberRequest{
+    int64 Request=1;
+}
+
+message NumberResponse{
+    int64 Response=1;
+}
+
+service Runningmaxstream{
+    rpc CurrentMax(stream NumberRequest) returns (stream NumberResponse){};
+}
